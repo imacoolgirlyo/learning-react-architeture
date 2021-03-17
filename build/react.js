@@ -1,4 +1,13 @@
+const hooks = [];
+let currentComponent = 0;
 export class Component {}
+export function useState(initValue) {
+  const position = currentComponent;
+  hooks[position] = initValue;
+  return [value, nextValue => {
+    hooks[position] = nextValue;
+  }];
+}
 
 function renderRealDOM(vdom) {
   if (typeof vdom === 'string') {
@@ -19,6 +28,9 @@ export const render = function () {
     if (prevVDom === null) {
       prevVDom = nextVdom;
     }
+
+    console.log(prevVDom);
+    renderRealDOM(prevVDom);
   };
 }();
 export function createElement(tagName, props, ...children) {
