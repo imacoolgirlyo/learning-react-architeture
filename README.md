@@ -18,3 +18,21 @@
 ### [@babel/preset-react](https://babeljs.io/docs/en/babel-preset-react)
 
 - @babel/preset-react 의 역할은?
+
+### [JSX](https://reactjs.org/docs/introducing-jsx.html) 란?
+
+```jsx
+const element = <div> hello !</div>
+```
+
+- 이건 string 도 아니고 HTML 엘리먼트도 아니다. 이는 JSX 문법
+- 렌더링 로직이 event handler, state의 변화, UI 를 보여주기 전의 데이터 준비 과정등의 UI 로직과 크게 관련있기 때문에 이와 같은 문법을 만들었다.
+- JSX는 React.element를 만들어냄.
+- markup 작성과 관련 logic을 별도의 파일로 작성하기보다는 하나의 컴포넌트 안에서 작성할 수 있도록 함
+
+```jsx
+const element = <div> hello ! {name}</div>
+```
+
+- curly brace 안에 어떤 js expression이던 작성 가능하다.
+- JSX는 babel 에 의해 compile 된 후에는 일반 javascript function으로 변환된다.
