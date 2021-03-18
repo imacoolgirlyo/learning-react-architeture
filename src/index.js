@@ -11,9 +11,10 @@ import { createElement, render } from './react.js'
 
 function Title () {
   return (
-    <div>
-      <h2>title?</h2>
-      <p>yes!</p>
+    <div name='parents'>
+      <h2 name='child1'>title?</h2>
+      <p name='child2'>yes!</p>
+      <span name='child3'>무아호</span>
     </div>
   )
 }

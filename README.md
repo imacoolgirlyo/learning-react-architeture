@@ -52,3 +52,15 @@ const element = <div> hello ! {name}</div>
   - 이때의 distribution 코드는 minimized 되고 optimized됨
   - 이렇게 번들된 코드가 브라우저에서 로드되 사용된다.
 - webpack은 import, export 구문을 transpile 함
+
+### [Spread in function calls](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_function_calls)
+
+```js
+function add (x, y, z) {
+  return x + y + z
+}
+
+const arr = [1, 2, 4]
+add(...arr) // add(1,2,4) 와 동일
+add.apply(null, arr)
+```

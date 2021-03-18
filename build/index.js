@@ -7,7 +7,15 @@ import { createElement, render } from './react.js'; // class YourTitle extends C
 // }
 
 function Title() {
-  return createElement("div", null, createElement("h2", null, "title?"), createElement("p", null, "yes!"));
+  return createElement("div", {
+    name: "parents"
+  }, createElement("h2", {
+    name: "child1"
+  }, "title?"), createElement("p", {
+    name: "child2"
+  }, "yes!"), createElement("span", {
+    name: "child3"
+  }, "\uBB34\uC544\uD638"));
 }
 
 console.log(Title());

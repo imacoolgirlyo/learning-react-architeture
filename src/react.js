@@ -47,9 +47,12 @@ export function createElement (tagName, props, ...children) {
       const instance = new tagName({ ...props, children })
       return instance.render()
     } else {
+      console.log(props, tagName)
+      console.log(children)
       return tagName.apply(null, props, [props, ...children])
     }
   }
+  console.log('tagName element', props)
 
-  return { tagName, props, children }
+  // return { tagName, props, children }
 }
