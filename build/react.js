@@ -29,8 +29,7 @@ export const render = function () {
       prevVDom = nextVdom;
     }
 
-    console.log(prevVDom);
-    renderRealDOM(prevVDom);
+    container.appendChild(renderRealDOM(prevVDom));
   };
 }();
 export function createElement(tagName, props, ...children) {
@@ -41,11 +40,13 @@ export function createElement(tagName, props, ...children) {
       });
       return instance.render();
     } else {
-      console.log(props, tagName);
-      console.log(children);
       return tagName.apply(null, props, [props, ...children]);
     }
   }
 
-  console.log('tagName element', props); // return { tagName, props, children }
+  return {
+    tagName,
+    props,
+    children
+  };
 }
