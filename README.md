@@ -35,7 +35,27 @@ const element = <div> hello ! {name}</div>
 ```
 
 - curly brace 안에 어떤 js expression이던 작성 가능하다.
-- JSX는 babel 에 의해 compile 된 후에는 일반 javascript function으로 변환된다.
+- babel이 JSX을 React.createElement() 호출로 변환시킨다.
+
+```js
+const title = <div className='container'>title</div>
+
+const title = React.createElement('div', { className: 'container' }, 'title')
+```
+
+- React.createElement() 의 결과는 대략 이렇게 생겼는데, 이는 화면에 보여졌으면 하는 것들의 description이라고 생각하면 쉽다.
+
+```js
+const title = {
+  tagName: 'div',
+  props: {
+    className: 'container',
+    children: 'title'
+  }
+}
+```
+
+- React는 이 object를 읽어서 DOM을 생성하고, 이전에 만들었던 DOM과 비교해서 업데이트가 필요한 부분만 실제 DOM에 반영한다.
 
 ## 번외
 
