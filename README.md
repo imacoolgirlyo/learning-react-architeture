@@ -56,6 +56,7 @@ const title = {
 ```
 
 - React는 이 object를 읽어서 DOM을 생성하고, 이전에 만들었던 DOM과 비교해서 업데이트가 필요한 부분만 실제 DOM에 반영한다.
+  [참고: JSX Represents Objects](https://reactjs.org/docs/introducing-jsx.html#jsx-represents-objects)
 
 ## 번외
 
@@ -84,3 +85,13 @@ const arr = [1, 2, 4]
 add(...arr) // add(1,2,4) 와 동일
 add.apply(null, arr)
 ```
+
+### Class Component, Functional Component
+
+- Class 컴포넌트는 render시 instance를 생성해서 사용하기 때문에 state를 가지고 있을 수 있다.
+- Functional 컴포넌트는 함수기 때문에 state를 가질 수 없는데, React가 기억하고 있다가 state를 주입해주는 식으로 state를 가질 수 있도록 구현되어있음(hooks)
+
+## hooks 의 기본 원리
+
+- 함수가 실행되는 횟수가 똑같다..?
+- app이 100번 업데이트 해도, 함수형 컴포넌트가 30개가 있으면 매번 동일하게 호출이 되면서 render됨

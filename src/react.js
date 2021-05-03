@@ -1,13 +1,17 @@
 const hooks = []
-let currentComponent = 0
+let currentComponent = -1
 
 export class Component {}
 
-export function useState (initValue) {
+export function useState (initialValue) {
   const position = currentComponent
-  hooks[position] = initValue
+
+  if (!hooks[position]) {
+    hooks[position] = initialValue
+  }
+
   return [
-    value,
+    hooks[position],
     nextValue => {
       hooks[position] = nextValue
     }
@@ -47,6 +51,9 @@ export function createElement (tagName, props, ...children) {
       const instance = new tagName({ ...props, children })
       return instance.render()
     } else {
+      currentComponent++
+
+      // return 되기 전에 hooks이 호출되어야 함
       return tagName.apply(null, props, [props, ...children])
     }
   }
